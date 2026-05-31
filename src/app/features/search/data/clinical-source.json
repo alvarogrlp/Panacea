@@ -1,0 +1,392 @@
+{
+  "version": 1,
+  "description": "Fuente local para generar el indice clinico estatico de Panacea. Preparada para enriquecerse con exportaciones oficiales revisadas antes de runtime.",
+  "entries": [
+    {
+      "id": "bronquitis",
+      "system": "Respiratorio",
+      "medical": "bronquitis",
+      "synonyms": ["bronquitis", "tos persistente", "tos bronquial"],
+      "activeIngredients": ["salbutamol", "budesonida", "dextrometorfano", "acetilcisteina"],
+      "confidence": "low"
+    },
+    {
+      "id": "neumonia",
+      "system": "Respiratorio / infecciosas",
+      "medical": "neumonia",
+      "synonyms": ["neumonia", "pulmonia", "infeccion pulmon"],
+      "activeIngredients": ["amoxicilina", "azitromicina", "levofloxacino", "paracetamol"],
+      "confidence": "low"
+    },
+    {
+      "id": "epoc",
+      "system": "Respiratorio",
+      "medical": "EPOC",
+      "synonyms": ["epoc", "enfermedad pulmonar obstructiva cronica", "bronquitis cronica"],
+      "activeIngredients": ["tiotropio", "salbutamol", "formoterol", "budesonida"],
+      "confidence": "low"
+    },
+    {
+      "id": "faringoamigdalitis",
+      "system": "ORL",
+      "medical": "faringoamigdalitis",
+      "synonyms": ["faringoamigdalitis", "amigdalitis", "anginas", "placas garganta"],
+      "activeIngredients": ["paracetamol", "ibuprofeno", "amoxicilina", "bencidamina"],
+      "confidence": "low"
+    },
+    {
+      "id": "rinorrea",
+      "system": "ORL",
+      "medical": "rinorrea",
+      "synonyms": ["rinorrea", "moqueo", "goteo nasal", "mocos liquidos"],
+      "activeIngredients": ["cetirizina", "loratadina", "ipratropio", "pseudoefedrina"],
+      "confidence": "medium"
+    },
+    {
+      "id": "epistaxis",
+      "system": "ORL",
+      "medical": "epistaxis",
+      "synonyms": ["epistaxis", "sangrado nasal", "sangre nariz"],
+      "activeIngredients": ["acido tranexamico"],
+      "confidence": "low"
+    },
+    {
+      "id": "blefaritis",
+      "system": "Oftalmologia",
+      "medical": "blefaritis",
+      "synonyms": ["blefaritis", "parpado inflamado", "costras parpados"],
+      "activeIngredients": ["azitromicina", "tobramicina", "dexametasona"],
+      "confidence": "low"
+    },
+    {
+      "id": "glaucoma",
+      "system": "Oftalmologia",
+      "medical": "glaucoma",
+      "synonyms": ["glaucoma", "tension ocular alta", "presion ocular alta"],
+      "activeIngredients": ["latanoprost", "timolol", "brimonidina", "dorzolamida"],
+      "confidence": "low"
+    },
+    {
+      "id": "colico-biliar",
+      "system": "Digestivo",
+      "medical": "colico biliar",
+      "synonyms": ["colico biliar", "dolor vesicula", "piedras vesicula"],
+      "activeIngredients": ["metamizol", "paracetamol", "butilescopolamina"],
+      "confidence": "low"
+    },
+    {
+      "id": "colico-renal",
+      "system": "Urologia",
+      "medical": "colico renal",
+      "synonyms": ["colico renal", "piedra riñon", "litiasis renal", "dolor riñon"],
+      "activeIngredients": ["dexketoprofeno", "diclofenaco", "metamizol", "tamsulosina"],
+      "confidence": "low"
+    },
+    {
+      "id": "infeccion-urinaria",
+      "system": "Urologia / infecciosas",
+      "medical": "infeccion urinaria",
+      "synonyms": ["infeccion urinaria", "itu", "infeccion de orina", "urgencia miccional"],
+      "activeIngredients": ["fosfomicina", "nitrofurantoina", "amoxicilina"],
+      "confidence": "low"
+    },
+    {
+      "id": "incontinencia-urinaria",
+      "system": "Urologia",
+      "medical": "incontinencia urinaria",
+      "synonyms": ["incontinencia", "incontinencia urinaria", "perdidas orina"],
+      "activeIngredients": ["solifenacina", "tolterodina", "mirabegron"],
+      "confidence": "low"
+    },
+    {
+      "id": "prostatitis-hiperplasia",
+      "system": "Urologia",
+      "medical": "hiperplasia prostatica / prostatitis",
+      "synonyms": ["prostata", "hiperplasia prostatica", "prostatitis", "dificultad orinar"],
+      "activeIngredients": ["tamsulosina", "dutasterida", "finasterida"],
+      "confidence": "low"
+    },
+    {
+      "id": "vulvovaginitis",
+      "system": "Ginecologia / infecciosas",
+      "medical": "vulvovaginitis",
+      "synonyms": ["vulvovaginitis", "irritacion vaginal", "escozor vaginal", "picor vulvar"],
+      "activeIngredients": ["clotrimazol", "fluconazol", "metronidazol"],
+      "confidence": "low"
+    },
+    {
+      "id": "anticoncepcion",
+      "system": "Ginecologia",
+      "medical": "anticoncepcion",
+      "synonyms": ["anticoncepcion", "anticonceptivo", "pastilla anticonceptiva", "contracepcion"],
+      "activeIngredients": ["levonorgestrel", "etinilestradiol", "drospirenona", "desogestrel"],
+      "confidence": "medium"
+    },
+    {
+      "id": "menopausia",
+      "system": "Ginecologia",
+      "medical": "menopausia",
+      "synonyms": ["menopausia", "sofocos", "sudores menopausia"],
+      "activeIngredients": ["estradiol", "progesterona", "tibolona"],
+      "confidence": "low"
+    },
+    {
+      "id": "hipotiroidismo",
+      "system": "Endocrinologia",
+      "medical": "hipotiroidismo",
+      "synonyms": ["hipotiroidismo", "tiroides baja", "tsh alta"],
+      "activeIngredients": ["levotiroxina"],
+      "confidence": "low"
+    },
+    {
+      "id": "hipertiroidismo",
+      "system": "Endocrinologia",
+      "medical": "hipertiroidismo",
+      "synonyms": ["hipertiroidismo", "tiroides alta", "tsh baja"],
+      "activeIngredients": ["tiamazol", "propiltiouracilo", "propranolol"],
+      "confidence": "low"
+    },
+    {
+      "id": "diabetes",
+      "system": "Endocrinologia",
+      "medical": "diabetes mellitus",
+      "synonyms": ["diabetes", "azucar alto", "glucosa alta", "hiperglucemia"],
+      "activeIngredients": ["metformina", "insulina", "semaglutida", "empagliflozina"],
+      "confidence": "low"
+    },
+    {
+      "id": "dislipemia",
+      "system": "Cardiovascular",
+      "medical": "dislipemia",
+      "synonyms": ["dislipemia", "colesterol alto", "trigliceridos altos", "hipercolesterolemia"],
+      "activeIngredients": ["atorvastatina", "simvastatina", "rosuvastatina", "ezetimiba"],
+      "confidence": "low"
+    },
+    {
+      "id": "insuficiencia-cardiaca",
+      "system": "Cardiovascular",
+      "medical": "insuficiencia cardiaca",
+      "synonyms": [
+        "insuficiencia cardiaca",
+        "edema piernas",
+        "retencion liquidos",
+        "fatiga cardiaca"
+      ],
+      "activeIngredients": ["furosemida", "bisoprolol", "enalapril", "espironolactona"],
+      "confidence": "low"
+    },
+    {
+      "id": "trombosis-anticoagulacion",
+      "system": "Cardiovascular / hematologia",
+      "medical": "trombosis / anticoagulacion",
+      "synonyms": ["trombosis", "trombo", "anticoagulacion", "fibrilacion auricular"],
+      "activeIngredients": ["apixaban", "rivaroxaban", "acenocumarol", "warfarina"],
+      "confidence": "low"
+    },
+    {
+      "id": "anemia-megaloblastica",
+      "system": "Hematologia",
+      "medical": "deficit de vitamina B12 / folato",
+      "synonyms": ["vitamina b12 baja", "deficit b12", "folato bajo", "acido folico bajo"],
+      "activeIngredients": ["cianocobalamina", "hidroxocobalamina", "acido folico"],
+      "confidence": "low"
+    },
+    {
+      "id": "depresion",
+      "system": "Salud mental",
+      "medical": "depresion",
+      "synonyms": ["depresion", "estado depresivo", "animo bajo", "tristeza persistente"],
+      "activeIngredients": ["sertralina", "escitalopram", "fluoxetina", "venlafaxina"],
+      "confidence": "low"
+    },
+    {
+      "id": "psicosis",
+      "system": "Salud mental",
+      "medical": "psicosis",
+      "synonyms": ["psicosis", "delirios", "alucinaciones", "brote psicotico"],
+      "activeIngredients": ["risperidona", "olanzapina", "quetiapina", "haloperidol"],
+      "confidence": "low"
+    },
+    {
+      "id": "epilepsia",
+      "system": "Neurologia",
+      "medical": "epilepsia / crisis convulsiva",
+      "synonyms": ["epilepsia", "convulsion", "crisis convulsiva", "ataque epileptico"],
+      "activeIngredients": ["levetiracetam", "valproato", "lamotrigina", "diazepam"],
+      "confidence": "low"
+    },
+    {
+      "id": "parkinson",
+      "system": "Neurologia",
+      "medical": "enfermedad de Parkinson",
+      "synonyms": ["parkinson", "temblor reposo", "rigidez parkinson"],
+      "activeIngredients": ["levodopa", "carbidopa", "rasagilina", "pramipexol"],
+      "confidence": "low"
+    },
+    {
+      "id": "neuropatia",
+      "system": "Neurologia",
+      "medical": "dolor neuropatico",
+      "synonyms": ["dolor neuropatico", "neuropatia", "hormigueo", "parestesias"],
+      "activeIngredients": ["pregabalina", "gabapentina", "duloxetina", "amitriptilina"],
+      "confidence": "low"
+    },
+    {
+      "id": "artritis",
+      "system": "Reumatologia",
+      "medical": "artritis",
+      "synonyms": ["artritis", "articulacion inflamada", "dolor inflamatorio"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "metotrexato", "prednisona"],
+      "confidence": "low"
+    },
+    {
+      "id": "artrosis",
+      "system": "Reumatologia",
+      "medical": "artrosis",
+      "synonyms": ["artrosis", "osteoartritis", "desgaste articulacion"],
+      "activeIngredients": ["paracetamol", "ibuprofeno", "naproxeno", "diclofenaco"],
+      "confidence": "medium"
+    },
+    {
+      "id": "osteoporosis",
+      "system": "Reumatologia / metabolismo oseo",
+      "medical": "osteoporosis",
+      "synonyms": ["osteoporosis", "huesos fragiles", "densidad osea baja"],
+      "activeIngredients": ["alendronato", "colecalciferol", "calcio", "denosumab"],
+      "confidence": "low"
+    },
+    {
+      "id": "fibromialgia",
+      "system": "Reumatologia / dolor",
+      "medical": "fibromialgia",
+      "synonyms": ["fibromialgia", "dolor generalizado", "dolor cronico generalizado"],
+      "activeIngredients": ["duloxetina", "pregabalina", "amitriptilina", "tramadol"],
+      "confidence": "low"
+    },
+    {
+      "id": "celulitis-infecciosa",
+      "system": "Dermatologia / infecciosas",
+      "medical": "celulitis infecciosa",
+      "synonyms": ["celulitis infecciosa", "piel roja caliente", "infeccion piel"],
+      "activeIngredients": ["amoxicilina", "cloxacilina", "cefadroxilo"],
+      "confidence": "low"
+    },
+    {
+      "id": "impetigo",
+      "system": "Dermatologia / infecciosas",
+      "medical": "impetigo",
+      "synonyms": ["impetigo", "costras mielicericas", "infeccion cutanea"],
+      "activeIngredients": ["mupirocina", "acido fusidico"],
+      "confidence": "low"
+    },
+    {
+      "id": "quemadura-solar",
+      "system": "Dermatologia / curas",
+      "medical": "quemadura solar",
+      "synonyms": ["quemadura solar", "eritema solar", "piel quemada sol"],
+      "activeIngredients": ["dexpantenol", "hidrocortisona", "ibuprofeno"],
+      "confidence": "medium"
+    },
+    {
+      "id": "anafilaxia",
+      "system": "Alergia / urgencias",
+      "medical": "anafilaxia",
+      "synonyms": ["anafilaxia", "shock anafilactico", "reaccion alergica grave"],
+      "activeIngredients": ["adrenalina", "dexclorfeniramina", "metilprednisolona"],
+      "confidence": "low"
+    },
+    {
+      "id": "reaccion-alergica",
+      "system": "Alergia",
+      "medical": "reaccion alergica",
+      "synonyms": ["reaccion alergica", "alergia piel", "habones", "urticaria aguda"],
+      "activeIngredients": ["cetirizina", "loratadina", "dexclorfeniramina", "prednisona"],
+      "confidence": "medium"
+    }
+  ],
+  "painLocations": [
+    {
+      "id": "cervicalgia",
+      "system": "Musculoesqueletico",
+      "medical": "cervicalgia",
+      "locations": ["cuello", "cervical", "cervicales", "nuca"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "diclofenaco", "paracetamol"],
+      "confidence": "medium"
+    },
+    {
+      "id": "dorsalgia",
+      "system": "Musculoesqueletico",
+      "medical": "dorsalgia",
+      "locations": ["dorsal", "espalda alta"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "diclofenaco", "paracetamol"],
+      "confidence": "medium"
+    },
+    {
+      "id": "dolor-hombro",
+      "system": "Musculoesqueletico",
+      "medical": "dolor de hombro",
+      "locations": ["hombro", "hombros"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "diclofenaco", "paracetamol"],
+      "confidence": "medium"
+    },
+    {
+      "id": "dolor-cadera",
+      "system": "Musculoesqueletico",
+      "medical": "dolor de cadera",
+      "locations": ["cadera", "caderas"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "diclofenaco", "paracetamol"],
+      "confidence": "medium"
+    },
+    {
+      "id": "dolor-tobillo-pie",
+      "system": "Musculoesqueletico",
+      "medical": "dolor de tobillo / pie",
+      "locations": ["tobillo", "tobillos", "pie", "pies", "talon"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "diclofenaco", "paracetamol"],
+      "confidence": "medium"
+    },
+    {
+      "id": "dolor-mano-muneca",
+      "system": "Musculoesqueletico",
+      "medical": "dolor de mano / muñeca",
+      "locations": ["mano", "manos", "muñeca", "muñecas", "dedo", "dedos"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "diclofenaco", "paracetamol"],
+      "confidence": "medium"
+    },
+    {
+      "id": "dolor-pelvico",
+      "system": "Ginecologia / urologia",
+      "medical": "dolor pelvico",
+      "locations": ["pelvis", "pelvico", "bajo vientre"],
+      "activeIngredients": ["ibuprofeno", "naproxeno", "metamizol", "paracetamol"],
+      "confidence": "low"
+    }
+  ],
+  "redFlags": [
+    {
+      "label": "anafilaxia",
+      "terms": [
+        "anafilaxia",
+        "shock anafilactico",
+        "reaccion alergica grave",
+        "hinchazon labios lengua"
+      ]
+    },
+    {
+      "label": "deficit neurologico focal o convulsion",
+      "terms": ["convulsion", "crisis convulsiva", "perdida fuerza", "dificultad hablar"]
+    },
+    {
+      "label": "sangrado nasal persistente",
+      "terms": ["epistaxis intensa", "sangrado nasal persistente"]
+    },
+    {
+      "label": "dolor ocular o perdida visual",
+      "terms": ["dolor ocular", "perdida vision", "vision borrosa brusca"]
+    },
+    {
+      "label": "fiebre con mal estado general",
+      "terms": ["fiebre alta", "mal estado general", "decaimiento intenso"]
+    }
+  ]
+}

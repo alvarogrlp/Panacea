@@ -1,0 +1,277 @@
+<main class="shell">
+  <div class="ambient-grid" aria-hidden="true">
+    <span class="scan-line"></span>
+    <span class="scan-line"></span>
+    <span class="scan-line"></span>
+    <span class="glass-panel panel-left"></span>
+    <span class="glass-panel panel-right"></span>
+  </div>
+
+  <section class="hero" aria-labelledby="app-title">
+    <h1 id="app-title" class="sr-only">Panacea</h1>
+    <img class="brand-logo" src="brand/logo.png" alt="Panacea" width="2400" height="1309" />
+
+    <label class="search-box" for="medicine-search">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input
+        id="medicine-search"
+        type="search"
+        [formControl]="searchControl"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="dolor de cabeza, paracetamol, ibuprofeno..."
+      />
+    </label>
+  </section>
+
+  @if (searchState$ | async; as state) {
+    <section class="content" aria-live="polite">
+      @if (state.query) {
+        <div class="query-summary">
+          <span>{{ modeLabel(state.query.mode) }}</span>
+          <strong>{{ state.query.searchTerm }}</strong>
+        </div>
+
+        @if (state.query.redFlags?.length) {
+          <div class="clinical-alert" role="alert">
+            <strong>Posible criterio de derivacion</strong>
+            <span>{{ state.query.redFlags?.join(', ') }}</span>
+          </div>
+        }
+      }
+
+      @if (loading()) {
+        <div class="status">Buscando en CIMA...</div>
+      } @else if (state.error) {
+        <div class="status error">{{ state.error }}</div>
+      } @else if (state.query && state.groups.length === 0) {
+        <div class="status">No hay resultados para esta busqueda.</div>
+      }
+
+      @if (state.groups.length > 0) {
+        @let filtered = filteredGroups(state);
+        @let visible = visibleGroups(filtered);
+
+        <div class="filters-panel" aria-label="Filtros de resultados">
+          <div class="filters-heading">
+            <span>Filtros</span>
+            @if (hasActiveFilters()) {
+              <button type="button" class="clear-filters" (click)="clearFilters()">Limpiar</button>
+            }
+          </div>
+          <div class="filters-scroll" role="group" aria-label="Filtros rapidos">
+            <button
+              type="button"
+              [class.active]="resultFilters().marketedOnly"
+              (click)="toggleFilter('marketedOnly')"
+            >
+              Comercializados
+            </button>
+            <button
+              type="button"
+              [class.active]="resultFilters().prescriptionFreeOnly"
+              (click)="toggleFilter('prescriptionFreeOnly')"
+            >
+              Sin receta
+            </button>
+            <button
+              type="button"
+              [class.active]="resultFilters().noDrivingWarning"
+              (click)="toggleFilter('noDrivingWarning')"
+            >
+              Sin aviso conduccion
+            </button>
+            <button
+              type="button"
+              [class.active]="resultFilters().noSupplyIssue"
+              (click)="toggleFilter('noSupplyIssue')"
+            >
+              Sin incidencia suministro
+            </button>
+          </div>
+        </div>
+
+        <div class="results-layout">
+          <section class="results-list" aria-label="Resultados">
+            <div class="results-toolbar">
+              <div class="result-count">
+                Mostrando {{ visible.length }} de {{ filtered.length }} grupos ·
+                {{ state.total }} coincidencias CIMA
+              </div>
+            </div>
+            @if (filtered.length === 0) {
+              <div class="status">No hay grupos que cumplan estos filtros.</div>
+            }
+            @for (group of visible; track trackByGroup($index, group)) {
+              <article
+                class="result-group"
+                [class.selected]="selectedMedicine()?.nregistro === group.representative.nregistro"
+              >
+                <button
+                  type="button"
+                  class="result-item"
+                  (click)="selectMedicine(group.representative)"
+                >
+                  <span class="result-name">{{ group.title }}</span>
+                  <span class="result-meta">
+                    {{ group.subtitle || 'Laboratorio no disponible' }}
+                    @if (group.medicines.length > 1) {
+                      · {{ group.medicines.length }} presentaciones
+                    }
+                  </span>
+                  <span class="badges">
+                    <span
+                      class="badge"
+                      [ngClass]="group.representative.receta ? 'warning' : 'success'"
+                    >
+                      {{ group.representative.receta ? 'Con receta' : 'Sin receta' }}
+                    </span>
+                    @if (group.representative.conduc) {
+                      <span class="badge warning">Conduccion</span>
+                    }
+                    @if (group.representative.psum) {
+                      <span class="badge danger">Suministro</span>
+                    }
+                    @if (group.representative.comerc) {
+                      <span class="badge success">Comercializado</span>
+                    }
+                  </span>
+                </button>
+
+                @if (group.medicines.length > 1) {
+                  <button
+                    type="button"
+                    class="variants-toggle"
+                    [attr.aria-expanded]="isGroupExpanded(group)"
+                    (click)="toggleGroup(group)"
+                  >
+                    <span>{{
+                      isGroupExpanded(group) ? 'Ocultar presentaciones' : 'Ver presentaciones'
+                    }}</span>
+                    <span class="toggle-chevron" aria-hidden="true">⌄</span>
+                  </button>
+
+                  <div class="variants-list" [class.open]="isGroupExpanded(group)">
+                    @for (medicine of group.medicines; track trackByMedicine($index, medicine)) {
+                      <button
+                        type="button"
+                        class="variant-item"
+                        [class.selected]="selectedMedicine()?.nregistro === medicine.nregistro"
+                        [attr.tabindex]="isGroupExpanded(group) ? 0 : -1"
+                        (click)="selectMedicine(medicine)"
+                      >
+                        <span>{{ medicine.nombre }}</span>
+                        @if (medicine.formaFarmaceuticaSimplificada?.nombre || medicine.dosis) {
+                          <small>
+                            {{
+                              medicine.formaFarmaceuticaSimplificada?.nombre ||
+                                'Forma no disponible'
+                            }}
+                            @if (medicine.dosis) {
+                              · {{ medicine.dosis }}
+                            }
+                          </small>
+                        }
+                      </button>
+                    }
+                  </div>
+                }
+              </article>
+            }
+
+            @if (visible.length < filtered.length) {
+              <button type="button" class="show-more" (click)="showMoreGroups()">
+                Ver más resultados
+                <span>{{ filtered.length - visible.length }} restantes</span>
+              </button>
+            }
+          </section>
+
+          <aside
+            #detailPanel
+            class="detail"
+            [class.detail-panel-enter]="detailAnimation() === 'enter'"
+            [class.detail-panel-update]="detailAnimation() === 'update'"
+            aria-label="Detalle del medicamento"
+          >
+            @if (detailLoading()) {
+              <div class="status">Cargando detalle...</div>
+            } @else if (detailError | async; as message) {
+              <div class="status error">{{ message }}</div>
+            } @else if (selectedMedicine(); as medicine) {
+              <div
+                class="detail-content"
+                [class.detail-enter]="detailAnimation() === 'enter'"
+                [class.detail-update]="detailAnimation() === 'update'"
+              >
+                <div class="detail-head">
+                  <p class="detail-kicker">Registro {{ medicine.nregistro }}</p>
+                  <h2>{{ medicine.nombre }}</h2>
+                  <p class="lab">{{ medicine.labtitular }}</p>
+                </div>
+
+                <div class="detail-grid">
+                  <span>Prescripcion</span>
+                  <strong>{{ medicine.cpresc || 'No disponible' }}</strong>
+                  <span>Comercializado</span>
+                  <strong>{{ medicine.comerc ? 'Si' : 'No' }}</strong>
+                  <span>Conduccion</span>
+                  <strong>{{ medicine.conduc ? 'Puede afectar' : 'No indicada' }}</strong>
+                  <span>Suministro</span>
+                  <strong>{{ medicine.psum ? 'Con incidencia' : 'Sin incidencia abierta' }}</strong>
+                </div>
+
+                @if (selectedActiveIngredients().length > 0) {
+                  <h3>Principios activos</h3>
+                  <ul class="plain-list">
+                    @for (ingredient of selectedActiveIngredients(); track ingredient.id) {
+                      <li>
+                        {{ ingredient.nombre }}
+                        @if (ingredient.cantidad && ingredient.unidad) {
+                          <span>{{ ingredient.cantidad }} {{ ingredient.unidad }}</span>
+                        }
+                      </li>
+                    }
+                  </ul>
+                }
+
+                @if (medicine.atcs?.length) {
+                  <h3>ATC</h3>
+                  <ul class="plain-list">
+                    @for (atc of medicine.atcs; track atc.codigo) {
+                      <li>{{ atc.codigo }} · {{ atc.nombre }}</li>
+                    }
+                  </ul>
+                }
+
+                @if (selectedDocuments().length > 0) {
+                  <h3>Documentos</h3>
+                  <div class="doc-links">
+                    @for (document of selectedDocuments(); track document.tipo) {
+                      <a [href]="document.urlHtml || document.url" target="_blank" rel="noreferrer">
+                        {{ documentLabel(document.tipo) }}
+                      </a>
+                    }
+                  </div>
+                }
+              </div>
+            } @else {
+              <div class="empty-detail">
+                Selecciona un resultado para ver los datos oficiales de CIMA.
+              </div>
+            }
+          </aside>
+        </div>
+      }
+    </section>
+  }
+
+  <footer>
+    <strong>Uso informativo</strong>
+    <span>
+      Datos oficiales reutilizados de CIMA AEMPS. Panacea no es una aplicacion oficial ni esta
+      afiliada a AEMPS. Uso informativo y educativo; no ofrece diagnostico, prescripcion ni
+      sustituye la valoracion de profesionales sanitarios.
+    </span>
+  </footer>
+</main>
