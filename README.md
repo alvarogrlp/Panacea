@@ -40,6 +40,15 @@ baratos, privados y explicables.
   suministro, laboratorio y enlaces oficiales.
 - Funciona como SPA estatica desplegada en GitHub Pages, sin backend ni claves privadas.
 
+## Diseño
+
+La interfaz esta inspirada en la sencillez de Google: una entrada principal, respuesta rapida y el
+menor ruido posible alrededor de la busqueda.
+
+Esa simplicidad es intencional. Panacea no busca parecer una plataforma sanitaria compleja, sino ser
+un buscador funcional, directo y centrado en su objetivo: encontrar informacion oficial de CIMA de
+forma natural y eficiente.
+
 ## Por Que No Usa IA Generativa
 
 Porque el problema no necesita inventar respuestas: necesita encontrar informacion oficial con baja
