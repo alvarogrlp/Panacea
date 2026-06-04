@@ -13,9 +13,9 @@ palabra con errores:
 
 - `dolor de cabeza`
 - `nauseas`
-- `disfuncion erectil`
-- `resaca`
-- `dolorr rodilla`
+- `acidez`
+- `malestar general`
+- `dolor rodilla`
 - `picazon`
 
 La dificultad esta en conectar esa entrada humana con terminos clinicos y principios activos utiles
