@@ -287,6 +287,26 @@ export const GENERATED_CLINICAL_KNOWLEDGE: ClinicalKnowledgeEntry[] = [
     "confidence": "low"
   },
   {
+    "id": "disfuncion-erectil",
+    "system": "Urologia / andrologia",
+    "medical": "disfuncion erectil",
+    "synonyms": [
+      "disfuncion erectil",
+      "disfunción eréctil",
+      "impotencia",
+      "problemas ereccion",
+      "problemas de ereccion",
+      "falta ereccion"
+    ],
+    "activeIngredients": [
+      "sildenafilo",
+      "tadalafilo",
+      "vardenafilo",
+      "avanafilo"
+    ],
+    "confidence": "medium"
+  },
+  {
     "id": "dislipemia",
     "system": "Cardiovascular",
     "medical": "dislipemia",
@@ -1034,6 +1054,26 @@ export const GENERATED_CLINICAL_KNOWLEDGE: ClinicalKnowledgeEntry[] = [
       "prednisona"
     ],
     "confidence": "medium"
+  },
+  {
+    "id": "resaca",
+    "system": "Sistemico / digestivo",
+    "medical": "resaca",
+    "synonyms": [
+      "resaca",
+      "cruda",
+      "hangover",
+      "malestar por alcohol",
+      "dolor cabeza alcohol",
+      "nauseas alcohol"
+    ],
+    "activeIngredients": [
+      "ibuprofeno",
+      "dimenhidrinato",
+      "suero oral",
+      "omeprazol"
+    ],
+    "confidence": "low"
   },
   {
     "id": "rinorrea",

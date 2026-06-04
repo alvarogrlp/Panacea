@@ -138,6 +138,21 @@ describe('SearchEngineService', () => {
     expect(cervicalPain.relatedActiveIngredients).toContain('diclofenaco');
   });
 
+  it('covers frequent lifestyle and sexual health searches', () => {
+    const hangover = service.normalize('resaca');
+    const erectileDysfunction = service.normalize('disfunción eréctil');
+
+    expect(hangover.mode).toBe('symptom');
+    expect(hangover.searchTerm).toBe('resaca');
+    expect(hangover.confidence).toBe('low');
+    expect(hangover.relatedActiveIngredients).toContain('dimenhidrinato');
+    expect(hangover.relatedActiveIngredients).not.toContain('paracetamol');
+    expect(erectileDysfunction.mode).toBe('symptom');
+    expect(erectileDysfunction.searchTerm).toBe('disfuncion erectil');
+    expect(erectileDysfunction.clinicalCategory).toBe('Urologia / andrologia');
+    expect(erectileDysfunction.relatedActiveIngredients).toContain('sildenafilo');
+  });
+
   it('flags red-flag clinical patterns without blocking the official search', () => {
     const query = service.normalize('dolor de pecho con falta de aire');
 
