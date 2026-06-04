@@ -1,15 +1,9 @@
 <div align="center">
-  <img alt="Panacea" src="public/brand/logo.png" width="220" />
-
-  <br />
-  <br />
+  <img alt="Panacea" src="public/brand/logo.png" width="320" />
 
   <a href="https://alvarogrlp.github.io/Panacea/">
     <img alt="Abrir Panacea" src="https://img.shields.io/badge/Abrir%20la%20web-Panacea-126b5d?style=for-the-badge" />
   </a>
-
-  <br />
-  <br />
 
   <img alt="Angular" src="https://img.shields.io/badge/Angular-21-DD0031?style=flat-square&logo=angular&logoColor=white" />
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white" />
@@ -17,6 +11,9 @@
   <img alt="Fuse.js" src="https://img.shields.io/badge/Fuse.js-Fuzzy%20Search-126b5d?style=flat-square" />
   <img alt="Vitest" src="https://img.shields.io/badge/Vitest-4.0-6E9F18?style=flat-square&logo=vitest&logoColor=white" />
   <img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-Deployed-222222?style=flat-square&logo=githubpages&logoColor=white" />
+  
+  <br />
+  <br />
 </div>
 
 Buscador ultrarrapido de medicamentos basado en datos oficiales de CIMA AEMPS.
