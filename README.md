@@ -64,6 +64,7 @@ testearse y ampliar sin cambiar la arquitectura.
 ## Documentacion
 
 - [Objetivo y enfoque del producto](docs/objetivo.md)
+- [Como funciona la busqueda](docs/como-funciona.md)
 - [Arquitectura tecnica](docs/arquitectura.md)
 - [Arranque local y despliegue](docs/arranque.md)
 - [Uso responsable y limites](docs/uso-responsable.md)
